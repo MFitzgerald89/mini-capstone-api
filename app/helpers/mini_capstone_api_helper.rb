@@ -1,0 +1,2 @@
+module MiniCapstoneApiHelper
+end
