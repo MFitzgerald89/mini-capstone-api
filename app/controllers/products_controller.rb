@@ -8,19 +8,19 @@ render json: product.as_json
 
 end 
 
-def first_product
+def catback
 
-  first_product = Product.first
+  catback = Product.first
 
-  render json: first_product.as_json
+  render json: catback.as_json
 
 end
 
-def second_product
+def alternator
 
-  second_product = Product.second
+  alternator = Product.second
 
-  render json: second_product.as_json
+  render json: alternator.as_json
 end
 
 end
