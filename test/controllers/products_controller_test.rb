@@ -18,4 +18,10 @@ test "show" do
   assert_equal ["id", "name", "price", "image_url", "description", "created_at", "updated_at"], data.keys
 end
 
+test "create" do
+  assert_difference "Product.count", 1 do
+    post "/products.json", params: { name: "test product", price: 1, image_url: "image.jpg", description: "test description"  }
+  end
+end
+
 end

@@ -1,0 +1,12 @@
+### Product Index
+
+GET http://localhost:3000/products
+
+### Product Show
+GET http://localhost:3000/products/1
+
+### Product Show
+GET http://localhost:3000/products/2
+
+### Product Create
+POST http://localhost:3000/products.json
