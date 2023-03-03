@@ -26,11 +26,11 @@ end
 
 test "update" do
   product = Product.first
-  patch "/products/#{product.id}.json", params: { name: "Updated name" }
+  patch "/products/#{product.id}.json", params: { name: "ECM" }
   assert_response 200
 
   data = JSON.parse(response.body)
-  assert_equal "Updated name", data["name"]
+  assert_equal "ECM", data["name"]
 end
 
 end
