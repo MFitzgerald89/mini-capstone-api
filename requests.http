@@ -18,3 +18,7 @@ Content-Type: application/json
 {
   "name": "ECM"
 }
+
+### Product Delete/Destroy
+
+ DELETE http://localhost:3000/products/4.json

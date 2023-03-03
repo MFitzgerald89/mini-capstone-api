@@ -34,9 +34,8 @@ def create
 end
 
 def update
-  product_id = params[:id]
   
-  product = Product.find_by(id: product_id)
+  product = Product.find_by(id: params["id"])
   
   product.update(
     name: params["name"] || product.name,
@@ -49,4 +48,12 @@ def update
   render json: product.as_json
 end
 
+def destroy
+  product = Product.find_by(id: params[:id])
+  product.destroy  
+  
+  render json:{message: "Product removed"}
+
+
+end
 end
