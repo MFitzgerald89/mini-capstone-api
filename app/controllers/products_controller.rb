@@ -20,15 +20,10 @@ end
 
 def create
 
-  product = Product.new(
-
-  name: "Catalytic Converter",
-  price: 275,
-  image_url: "https://orozcosautoservice.com/wp-content/uploads/Depositphotos_116259460_XL2.jpg",
-  description: "exhaust emission control device that converts toxic gases and pollutants in exhaust gas from an internal combustion engine into less-toxic pollutants by catalyzing a redox reaction."
-  )
+  product = Product.new(id: product.id)
   
   product.save
+  
   render json: product.as_json
 
 end
@@ -49,6 +44,7 @@ def update
 end
 
 def destroy
+  
   product = Product.find_by(id: params[:id])
   product.destroy  
   
