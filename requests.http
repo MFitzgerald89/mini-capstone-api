@@ -10,3 +10,11 @@ GET http://localhost:3000/products/2
 
 ### Product Create
 POST http://localhost:3000/products.json
+
+### Product Update
+
+PATCH http://localhost:3000/products/1.json
+Content-Type: application/json 
+{
+  "name": "ECM"
+}
