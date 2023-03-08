@@ -35,13 +35,22 @@ end
 
 def create
 
-  product = Product.new(id: product.id)
+  @product = Product.new(
+    name: params[:name],
+    price: params[:price],
+    image_url: params[:image_url],
+    description: params[:description]
+  )
   
-  product.save
-  
-  render json: product.as_json
+  if @product.save
+    render :json => @product.as_json
+  else
+    render :json => @product.errors.full_messages
+  :status => unprocessable_entity
+  end
 
 end
+
 
 def update
   
@@ -55,16 +64,22 @@ def update
     description: params["description"] || product.description
   )
 
-  render json: product.as_json
+  if product.valid?
+    render :json => product.as_json
+  else
+    render :json => product.errors.full_messages
+  :status => unprocessable_entity
+  end
+
 end
 
 def destroy
   
   product = Product.find_by(id: params[:id])
-  product.destroy  
+  
+  product.destroy 
   
   render json:{message: "Product removed"}
-
 
 end
 

@@ -21,4 +21,24 @@ Content-Type: application/json
 
 ### Product Delete/Destroy
 
- DELETE http://localhost:3000/products/4.json
+DELETE http://localhost:3000/products/3.json
+
+### Supplier Index
+
+GET http://localhost:3000/suppliers
+
+### Supplier Show
+
+GET http://localhost:3000/suppliers/1
+
+### Supplier Create
+
+POST http://localhost:3000/suppliers/json
+
+### Supplier Update
+
+PATCH http://localhost:3000/suppliers/1.json
+
+### Supplier Delete/Destroy
+
+DELETE http://localhost:3000/suppliers/2/json
