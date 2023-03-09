@@ -9,3 +9,8 @@
 #   {name: "Rousch", email: "rousch@test.com", phone_number: "3330000"},
 #   {name: "Borla", email: "borla@test.com", phone_number: "1111111"}
 # ])
+
+Image.create!([
+  {url: "https://thumbs.dreamstime.com/b/car-engine-exhaust-header-car-engine-exhaust-header-part-automobile-industry-154603147.jpg", product_id: 1},
+  {url: "https://ic.carid.com/articles/are-headers-worth-performance-improvement/headers-collage_0.jpg", product_id: 1}
+])

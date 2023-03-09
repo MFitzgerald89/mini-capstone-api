@@ -38,8 +38,9 @@ def create
   @product = Product.new(
     name: params[:name],
     price: params[:price],
-    image_url: params[:image_url],
-    description: params[:description]
+    description: params[:description],
+    url: params[:url],
+    product_id: params[:product_id]
   )
   
   if @product.save
@@ -59,8 +60,8 @@ def update
   product.update(
     name: params["name"] || product.name,
     price: params["price"] ||
-    product.price,
-    image_url: params["image_url"] || product.image_url,
+    product.price, url: params["url"] || product.url,
+    product_id: params["product_id"] || product.product_id
     description: params["description"] || product.description
   )
 
