@@ -7,4 +7,8 @@ class Product < ApplicationRecord
   validates :price, numericality: {only_integer: true}
   validates :description, length: {minimum: 10}
   validates :description, length: {maximum: 500}
+
+  def supplier
+    Supplier.find_by(:id => supplier_id)
+  end
 end

@@ -19,7 +19,7 @@ def index
 
 product = Product.all
 
-render json: product.as_json
+render json: product,:include => [:supplier]
 
 end 
 
@@ -29,7 +29,7 @@ def show
   
   product = Product.find_by(id: product_id)
 
-  render json: product.as_json
+  render json: product,:include => [:supplier]
 
 end 
 
@@ -43,10 +43,10 @@ def create
   )
   
   if @product.save
-    render :json => @product.as_json
+    render :json => @product,:include => [:supplier]
   else
     render :json => @product.errors.full_messages
-  :status => unprocessable_entity
+    :status => unprocessable_entity
   end
 
 end
@@ -65,10 +65,10 @@ def update
   )
 
   if product.valid?
-    render :json => product.as_json
+    render :json => product,:include => [:supplier]
   else
     render :json => product.errors.full_messages
-  :status => unprocessable_entity
+    :status => unprocessable_entity
   end
 
 end
