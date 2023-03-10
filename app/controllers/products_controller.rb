@@ -28,10 +28,10 @@ def create
     product_id: params[:product_id]
   )
   
-  if @product.save
+  if product.save
     render :json => @product,:include => [:supplier]
   else
-    render :json => @product.errors.full_messages
+    render :json => product.errors.full_messages
     :status => unprocessable_entity
   end
 
@@ -43,11 +43,11 @@ def update
   product = Product.find_by(id: params["id"])
   
   product.update(
-    name: params["name"] || product.name,
-    price: params["price"] ||
-    product.price, url: params["url"] || product.url,
-    product_id: params["product_id"] || product.product_id,
-    description: params["description"] || product.description
+    
+  name: params["name"] || product.name,
+  price: params["price"] ||    product.price, url: params["url"] || product.url,
+  product_id: params["product_id"] || product.product_id,
+  description: params["description"] || product.description
   )
 
   if product.valid?
