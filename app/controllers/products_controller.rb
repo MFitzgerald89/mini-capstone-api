@@ -1,25 +1,10 @@
 class ProductsController < ApplicationController
 
-require 'open-uri'
-require 'net/http'
-  
-def remote_file_exists?(url)
-  
-  url = URI.parse(url)
-  
-  Net::HTTP.start(url.host, url.port) do |http|
-    
-    return http.head(url.request_uri)['Content-Type'].start_with? 'image'
-  
-  end
-  
-end
-
 def index
 
-product = Product.all
+  product = Product.all
 
-render json: product,:include => [:supplier]
+  render json: product,:include => [:supplier]
 
 end 
 
@@ -34,8 +19,8 @@ def show
 end 
 
 def create
-
-  @product = Product.new(
+  
+  product = Product.new(
     name: params[:name],
     price: params[:price],
     description: params[:description],
@@ -61,7 +46,7 @@ def update
     name: params["name"] || product.name,
     price: params["price"] ||
     product.price, url: params["url"] || product.url,
-    product_id: params["product_id"] || product.product_id
+    product_id: params["product_id"] || product.product_id,
     description: params["description"] || product.description
   )
 
@@ -82,6 +67,10 @@ def destroy
   
   render json:{message: "Product removed"}
 
+end
+
+def image
+  Image.where(:product => images)
 end
 
 end
