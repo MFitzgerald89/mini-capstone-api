@@ -4,11 +4,29 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :price, numericality: true
   validates :price, numericality: {greater_than: 0}
-  validates :price, numericality: {only_integer: true}
   validates :description, length: {minimum: 10}
   validates :description, length: {maximum: 500}
 
 
   belongs_to :supplier
   has_many :images
+
+  
+  def is_discounted?
+    if price <= 10
+      return true
+    else
+      return false
+    end
+  end
+  
+  def tax
+    tax = price * 0.09
+    return tax
+  end
+  
+  def total
+    sum = price + tax
+    return sum
+  end
 end

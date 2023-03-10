@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-catback: 
-  name: MyString
-  price: 10
-  description: MyString is so tasty
-  inventory: MyString
+Orange:
+  name: Orange
+  price: 1
+  description: A very orange orange
+  inventory: 10
   supplier: one
 
-engine: 
-  name: MyString
-  price: 10
-  description: MyString is delicious
-  inventory: MyString
+pear:
+  name: Pear
+  price: 3
+  description: A very green pear
+  inventory: 15
   supplier: one
