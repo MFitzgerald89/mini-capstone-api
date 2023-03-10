@@ -28,7 +28,7 @@ class SupplierController < ApplicationController
     supplier.update(
       name: params["name"] || supplier.name,
       email: params["email"] || supplier.email,
-      phone_number: params["phone_number"] || suppler.phone_number
+      phone_number: params["phone_number"] || supplier.phone_number
     )
   end
 

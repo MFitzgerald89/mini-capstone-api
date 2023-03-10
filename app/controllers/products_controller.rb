@@ -4,7 +4,7 @@ def index
 
   product = Product.all
 
-  render json: product,:include => [:supplier]
+  render json: @product,:include => [:supplier, :images]
 
 end 
 
@@ -14,7 +14,7 @@ def show
   
   product = Product.find_by(id: product_id)
 
-  render json: product,:include => [:supplier]
+  render json: @product,:include => [:supplier, :images]
 
 end 
 
@@ -24,11 +24,11 @@ def create
     name: params[:name],
     price: params[:price],
     description: params[:description],
-    url: params[:url],
-    product_id: params[:product_id]
+    supplier_id: params[:supplier_id]
   )
   
   if product.save
+    image = Image.new(product_id: @product.id, url: params[:url])
     render :json => @product,:include => [:supplier]
   else
     render :json => product.errors.full_messages
@@ -45,8 +45,8 @@ def update
   product.update(
     
   name: params["name"] || product.name,
-  price: params["price"] ||    product.price, url: params["url"] || product.url,
-  product_id: params["product_id"] || product.product_id,
+  price: params["price"] ||    product.price,
+  product_id: params["supplier_id"] || product.supplier_id,
   description: params["description"] || product.description
   )
 
@@ -70,7 +70,7 @@ def destroy
 end
 
 def image
-  Image.where(:product => images)
+  Image.where(:product_id => images)
 end
 
 end

@@ -3,13 +3,13 @@
 catback: 
   name: MyString
   price: 10
-  image_url: MyString
-  description: MyString
+  description: MyString is so tasty
   inventory: MyString
+  supplier: one
 
 engine: 
   name: MyString
   price: 10
-  image_url: MyString
-  description: MyString
+  description: MyString is delicious
   inventory: MyString
+  supplier: one
