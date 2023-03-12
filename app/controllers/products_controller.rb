@@ -23,6 +23,7 @@ def create
   product = Product.new(
     name: params[:name],
     price: params[:price],
+    total: params[:total],
     description: params[:description],
     supplier_id: params[:supplier_id]
   )
@@ -46,7 +47,8 @@ def update
   name: params["name"] || product.name,
   price: params["price"] ||    product.price,
   supplier_id: params["supplier_id"] || product.supplier_id,
-  description: params["description"] || product.description
+  description: params["description"] || product.description,
+  total: params["total"] || product.total
   )
 
   if product.valid?
