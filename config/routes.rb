@@ -21,4 +21,7 @@ post "/images" => "images#create"
 patch "/images/:id" => "images#update"
 delete "/images/:id" => "images#destroy"
 
+### User Routes
+post "/users" => "users#create"
+
 end
