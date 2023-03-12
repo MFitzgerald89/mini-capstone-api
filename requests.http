@@ -47,3 +47,32 @@ PATCH http://localhost:3000/suppliers/1.json
 ### Supplier Delete/Destroy
 
 DELETE http://localhost:3000/suppliers/json
+
+### User Create (aka signup)
+
+POST http://localhost:3000/users.json
+Content-Type: application/json
+
+{
+"name": "Mike",
+"email": "mikefitz@test.com",
+"password": "password",
+"password_confirmation": "password"
+}
+
+{
+"name": "Stan",
+"email": "stanmarsh@test.com",
+"password": "password",
+"password_confirmation": "password"
+}
+
+### Session Create
+
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "email": "mikefitz@test.com",
+  "password": "password"
+}

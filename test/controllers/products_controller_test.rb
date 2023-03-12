@@ -19,7 +19,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "create" do
     assert_difference "Product.count", 1 do
-      post "/products.json", params: { supplier_id: Supplier.first.id, name: "Lego Millennium Falcon", price: 800, description: "Defend the Galaxy and build the largest LEGO Star Wars Millennium Falcon to date! The perfect set for adult Star Wars fans and expert builders, This starship will inspire hours of play recreating the films or can be displayed as a collectible toy model" }
+      post "/products.json", params: { supplier_id: Supplier.first.id, name: "Lego Millennium Falcon", price: 800, description: "Defend the Galaxy and build the largest LEGO Star Wars Millennium Falcon to date! The perfect set for adult Star Wars fans and expert builders, This starship will inspire hours of play recreating the films or can be displayed as a collectible toy model"}
       assert_response 200
     end
 

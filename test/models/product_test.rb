@@ -15,8 +15,8 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "total" do
-    product = Product.new(price: 1)
-    assert_in_delta "#{price + tax}", product.total
+    product = Product.new(price: 100)
+    assert_in_delta 109 , product.total
   end
 
 end

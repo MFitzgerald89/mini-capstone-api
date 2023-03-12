@@ -24,4 +24,8 @@ delete "/images/:id" => "images#destroy"
 ### User Routes
 post "/users" => "users#create"
 
+### Session Routes
+post "/sessions" => "sessions#create"
+
+
 end
