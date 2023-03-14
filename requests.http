@@ -1,6 +1,8 @@
 ### Product Index
 
 GET http://localhost:3000/products.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4MzgwMDV9.5DeKg3Zy89IV7URWCBMGM0awKVP40cm9d7amGaqrgTg
 
 ### Product Show
 GET http://localhost:3000/products/1
@@ -10,19 +12,19 @@ GET http://localhost:3000/products/2
 
 ### Product Create
 POST http://localhost:3000/products.json
+Content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4MzgwMDV9.5DeKg3Zy89IV7URWCBMGM0awKVP40cm9d7amGaqrgTg
+
+{"name": "Engine",
+"price": 2400,
+"description": "Creates small explosions under pistons, to propel a vehicle forwards or backwards by turning mechnical parts",
+"supplier_id": 1,
+}
 
 ### Product Update
 
 PATCH http://localhost:3000/products/3.json
 Content-Type: application/json
-
-{"name": "Header",
-"price": 450,
-"description": "exhaust removal device",
-"supplier_id": 4,
-"product_id": 1,
-"url": "https://thumbs.dreamstime.com/b/car-engine-exhaust-header-car-engine-exhaust-header-part-automobile-industry-154603147.jpg"}
-
 
 ### Product Delete/Destroy
 
@@ -60,12 +62,6 @@ Content-Type: application/json
 "password_confirmation": "password"
 }
 
-{
-"name": "Stan",
-"email": "stanmarsh@test.com",
-"password": "password",
-"password_confirmation": "password"
-}
 
 ### Session Create
 

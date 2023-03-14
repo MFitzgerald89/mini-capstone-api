@@ -1,7 +1,10 @@
 class ProductsController < ApplicationController
 
-def index
 
+def index
+  pp current_user.name
+  pp current_user.email
+  pp current_user.id
   product = Product.all
 
   render json: product,:include => [:supplier, :images]
