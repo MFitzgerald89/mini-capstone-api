@@ -1,76 +1,67 @@
 class ProductsController < ApplicationController
 
 
-def index
-  pp current_user.name
-  pp current_user.email
-  pp current_user.id
-  product = Product.all
-
-  render json: product,:include => [:supplier, :images]
-
-end 
-
-def show
-
-  product_id = params[:id]
-  
-  product = Product.find_by(id: product_id)
-
-  render json: product,:include => [:supplier, :images]
-
-end 
-
-def create
-  
-  product = Product.new(
-    name: params[:name],
-    price: params[:price],
-    total: params[:total],
-    description: params[:description],
-    supplier_id: params[:supplier_id]
-  )
-  
-  if product.save
-    image = Image.new(product_id: product.id, url: params[:url])
-    render :json => product,:include => [:supplier]
-  else
-    render json: {errors: product.errors.full_messages}, status: :unprocessable_entity
+  def index
+    @products = Product.all
+    # render using json (NO Template)
+    # render json: @products, :include => [:supplier, :images]
+    render template: "products/index"
   end
 
-end
+  def show
+    product_id = params[:id]
+    @product = Product.find_by(id: product_id)
+    # render using a template
+    render template: "products/show"
+  end
 
+  def create
+    @product = Product.new(
+      name: params[:name],
+      price: params[:price],
+      description: params[:description], 
+      inventory: params[:inventory],
+      supplier_id: params[:supplier_id]
+    )
 
-def update
-  
-  product = Product.find_by(id: params["id"])
-  
-  product.update(
+    if @product.save
+      image = Image.new(product_id: @product.id ,url: params[:image_url])
+      image.save
+      # happy path i.e. successful
+      render template: "products/show"
+    else
+      # sad path i.e. unsucessful
+      render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    product_id = params[:id]
+    @product = Product.find(product_id)
+    @product.update(
+      name: params[:name] || @product.name,
+      price: params[:price] || @product.price,
+      description: params[:description] || @product.description,
+      inventory: params[:inventory] || @product.inventory,
+      supplier_id: params[:supplier_id] || @product.supplier_id
+    )
     
-  name: params["name"] || product.name,
-  price: params["price"] ||    product.price,
-  supplier_id: params["supplier_id"] || product.supplier_id,
-  description: params["description"] || product.description,
-  total: params["total"] || product.total
-  )
+    if @product.valid?
+      # happy path
+      render template: "products/show"
+    else
+      # sad path
+      render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
+    end
 
-  if product.valid?
-    render :json => product,:include => [:supplier]
-  else
-    render json: {errors: product.errors.full_messages}, status: :unprocessable_entity
   end
 
-end
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    render json: {message: "Product successfully destroyed!"}
+  end
 
-def destroy
-  
-  product = Product.find_by(id: params["id"])
-  
-  product.destroy 
-  
-  render json:{message: "Product removed"}
-
-end
 
 
 end
