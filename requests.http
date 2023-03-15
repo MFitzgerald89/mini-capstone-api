@@ -19,6 +19,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4MzgwM
 "price": 2400,
 "description": "Creates small explosions under pistons, to propel a vehicle forwards or backwards by turning mechnical parts",
 "supplier_id": 1,
+"product_id": 1
 }
 
 ### Product Update
@@ -40,7 +41,14 @@ GET http://localhost:3000/suppliers/1
 
 ### Supplier Create
 
-POST http://localhost:3000/suppliers/json
+POST http://localhost:3000/suppliers/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4MzgwMDV9.5DeKg3Zy89IV7URWCBMGM0awKVP40cm9d7amGaqrgTg
+ 
+ {
+  "name": "mike",
+  "supplier_id": 1
+  }
 
 ### Supplier Update
 
@@ -71,4 +79,24 @@ Content-Type: application/json
 {
   "email": "mikefitz@test.com",
   "password": "password"
+}
+
+### Order Index
+
+GET http://localhost:3000/orders.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg5MjgxNDd9.rV4BIKV5UeM3RELQbq1QLqo_9s9WpideuH0fSJaz7_I
+
+### Order Show
+
+GET http://localhost:3000/orders/1
+
+### Order Create
+
+POST http://localhost:3000/orders.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg5MjgxNDd9.rV4BIKV5UeM3RELQbq1QLqo_9s9WpideuH0fSJaz7_I
+
+{"product_id": 1,
+"quantity": 1,
 }

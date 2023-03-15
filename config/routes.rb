@@ -27,5 +27,8 @@ post "/users" => "users#create"
 ### Session Routes
 post "/sessions" => "sessions#create"
 
-
+### Order Routes
+post "/orders" => "orders#create"
+get "/orders/:id" => "orders#show"
+get "/orders" => "orders#index"
 end
