@@ -2,18 +2,18 @@
 
 GET http://localhost:3000/products.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4MzgwMDV9.5DeKg3Zy89IV7URWCBMGM0awKVP40cm9d7amGaqrgTg
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg5OTkxMTh9.sZWkdDdUG1Z3GNSqF4zjqYAReQCR4v_pdx1QSfo81Os
 
 ### Product Show
-GET http://localhost:3000/products/1
+GET http://localhost:3000/products/1.json
 
 ### Product Show
-GET http://localhost:3000/products/2
+GET http://localhost:3000/products/2.json
 
 ### Product Create
 POST http://localhost:3000/products.json
 Content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4MzgwMDV9.5DeKg3Zy89IV7URWCBMGM0awKVP40cm9d7amGaqrgTg
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg5OTkxMTh9.sZWkdDdUG1Z3GNSqF4zjqYAReQCR4v_pdx1QSfo81Os
 
 {"name": "Engine",
 "price": 2400,
@@ -64,8 +64,8 @@ POST http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-"name": "Mike",
-"email": "mikefitz@test.com",
+"name": "Steve",
+"email": "Steveharvey@test.com",
 "password": "password",
 "password_confirmation": "password"
 }
@@ -81,11 +81,12 @@ Content-Type: application/json
   "password": "password"
 }
 
+
 ### Order Index
 
 GET http://localhost:3000/orders.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg5MjgxNDd9.rV4BIKV5UeM3RELQbq1QLqo_9s9WpideuH0fSJaz7_I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzkwMDk5NDd9.zBRtmIoMf6-RF2rwT7wsXnYPkOiQOTYxTi39aPI1Sq8
 
 ### Order Show
 
@@ -95,8 +96,8 @@ GET http://localhost:3000/orders/1
 
 POST http://localhost:3000/orders.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg5MjgxNDd9.rV4BIKV5UeM3RELQbq1QLqo_9s9WpideuH0fSJaz7_I
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzkwMDk5NDd9.zBRtmIoMf6-RF2rwT7wsXnYPkOiQOTYxTi39aPI1Sq8
 
 {"product_id": 1,
-"quantity": 1,
+"quantity": 1
 }

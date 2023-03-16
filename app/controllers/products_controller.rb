@@ -1,21 +1,22 @@
 class ProductsController < ApplicationController
 
+before_action :authenticate_user, except: [:index, :show]
 
-  def index
+def index
     @products = Product.all
     # render using json (NO Template)
     # render json: @products, :include => [:supplier, :images]
     render template: "products/index"
-  end
+end
 
-  def show
+def show
     product_id = params[:id]
     @product = Product.find_by(id: product_id)
     # render using a template
     render template: "products/show"
-  end
+end
 
-  def create
+def create
     @product = Product.new(
       name: params[:name],
       price: params[:price],
@@ -33,9 +34,9 @@ class ProductsController < ApplicationController
       # sad path i.e. unsucessful
       render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
     end
-  end
+end
 
-  def update
+def update
     product_id = params[:id]
     @product = Product.find(product_id)
     @product.update(
@@ -54,13 +55,13 @@ class ProductsController < ApplicationController
       render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
     end
 
-  end
+end
 
-  def destroy
+def destroy
     product = Product.find(params[:id])
     product.destroy
     render json: {message: "Product successfully destroyed!"}
-  end
+end
 
 
 
