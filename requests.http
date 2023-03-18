@@ -1,11 +1,11 @@
 ### Product Index
 
-GET http://localhost:3000/products.json
+GET http://localhost:3000/products.json?category=Exhaust
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg5OTkxMTh9.sZWkdDdUG1Z3GNSqF4zjqYAReQCR4v_pdx1QSfo81Os
 
 ### Product Show
-GET http://localhost:3000/products/1.json
+GET http://localhost:3000/products/1.json?category=Exhaust
 
 ### Product Show
 GET http://localhost:3000/products/2.json

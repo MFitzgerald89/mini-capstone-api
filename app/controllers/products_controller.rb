@@ -3,15 +3,25 @@ class ProductsController < ApplicationController
 before_action :authenticate_user, except: [:index, :show]
 
 def index
-    @products = Product.all
+  @products = Product.all
+
+  if params[:category]
+    category = Category.find_by(name: params[:category])
+  end
+
     # render using json (NO Template)
     # render json: @products, :include => [:supplier, :images]
-    render template: "products/index"
+  render template: "products/index"
 end
 
 def show
     product_id = params[:id]
     @product = Product.find_by(id: product_id)
+
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+    end
+
     # render using a template
     render template: "products/show"
 end
