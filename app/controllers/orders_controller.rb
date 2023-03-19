@@ -31,7 +31,7 @@ def create
     
 
   if @order.save
-    render template: "orders/show"
+    render template: "orders/show", status: "carted"
   else
     render json: {errors: @order.errors.full_messages}, status: 422
   end

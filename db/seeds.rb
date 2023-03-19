@@ -16,3 +16,7 @@ Image.create!([
   {product_id: 1, url: "https://thumbs.dreamstime.com/b/car-engine-exhaust-header-car-engine-exhaust-header-part-automobile-industry-154603147.jpg", },
   {product_id: 2, url: "https://ic.carid.com/articles/are-headers-worth-performance-improvement/headers-collage_0.jpg"}
 ])
+
+Carted_product.create!([
+  {user_id: 1, product_id: 1, quantity: 1, status: true, order_id: 1},]
+)

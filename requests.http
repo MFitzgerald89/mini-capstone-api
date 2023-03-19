@@ -86,7 +86,7 @@ Content-Type: application/json
 
 GET http://localhost:3000/orders.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzkwMDk5NDd9.zBRtmIoMf6-RF2rwT7wsXnYPkOiQOTYxTi39aPI1Sq8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzkzMjk2ODB9.Ih9PB6Jg7qtmGk6cAVdzQJfxtSVr2o5hv7UPhxV6wts
 
 ### Order Show
 
@@ -96,8 +96,26 @@ GET http://localhost:3000/orders/1
 
 POST http://localhost:3000/orders.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzkwMDk5NDd9.zBRtmIoMf6-RF2rwT7wsXnYPkOiQOTYxTi39aPI1Sq8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzkzMjk2ODB9.Ih9PB6Jg7qtmGk6cAVdzQJfxtSVr2o5hv7UPhxV6wts
 
 {"product_id": 1,
 "quantity": 1
 }
+
+
+### CartedProduct Create
+
+POST http://localhost:3000/carted_products.json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzkzMjk2ODB9.Ih9PB6Jg7qtmGk6cAVdzQJfxtSVr2o5hv7UPhxV6wts
+
+{"user_id": 1,
+"product_id": 1,
+"quantity": 1,
+"order_id": 1
+}
+
+### CartedProduct Index
+
+GET http://localhost:3000/carted_products
+
