@@ -1,8 +1,10 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzk0NDQ3OTV9.6HbdiDW0iwlrs-py0-ZF2iTpS9KTXsTn9zeQncTQaBw
+
 ### Product Index
 
 GET http://localhost:3000/products.json?category=Exhaust
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg5OTkxMTh9.sZWkdDdUG1Z3GNSqF4zjqYAReQCR4v_pdx1QSfo81Os
+Authorization: Bearer {{jwt}}
 
 ### Product Show
 GET http://localhost:3000/products/1.json?category=Exhaust
@@ -13,7 +15,7 @@ GET http://localhost:3000/products/2.json
 ### Product Create
 POST http://localhost:3000/products.json
 Content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg5OTkxMTh9.sZWkdDdUG1Z3GNSqF4zjqYAReQCR4v_pdx1QSfo81Os
+Authorization: Bearer {{jwt}}
 
 {"name": "Engine",
 "price": 2400,
@@ -43,7 +45,7 @@ GET http://localhost:3000/suppliers/1
 
 POST http://localhost:3000/suppliers/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzg4MzgwMDV9.5DeKg3Zy89IV7URWCBMGM0awKVP40cm9d7amGaqrgTg
+Authorization: Bearer {{jwt}}
  
  {
   "name": "mike",
@@ -86,36 +88,40 @@ Content-Type: application/json
 
 GET http://localhost:3000/orders.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzkzMjk2ODB9.Ih9PB6Jg7qtmGk6cAVdzQJfxtSVr2o5hv7UPhxV6wts
+Authorization: Bearer {{jwt}}
 
 ### Order Show
 
-GET http://localhost:3000/orders/1
+GET http://localhost:3000/orders/9.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 ### Order Create
 
 POST http://localhost:3000/orders.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzkzMjk2ODB9.Ih9PB6Jg7qtmGk6cAVdzQJfxtSVr2o5hv7UPhxV6wts
+Authorization: Bearer {{jwt}}
 
-{"product_id": 1,
-"quantity": 1
-}
 
 
 ### CartedProduct Create
 
 POST http://localhost:3000/carted_products.json
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzkzMjk2ODB9.Ih9PB6Jg7qtmGk6cAVdzQJfxtSVr2o5hv7UPhxV6wts
+Authorization: Bearer {{jwt}}
 
-{"user_id": 1,
-"product_id": 1,
-"quantity": 1,
-"order_id": 1
+{"product_id": 2,
+"order_id": 2,
+"quantity": 2,
+"status": "carted"
 }
 
 ### CartedProduct Index
 
-GET http://localhost:3000/carted_products
+GET http://localhost:3000/carted_products.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
+### Carted Product Destroy
+DELETE http://localhost:3000/carted_products/.json
+Authorization: Bearer {{jwt}}
