@@ -15,8 +15,8 @@ def index
 end
 
 def show
-    product_id = params[:id]
-    @product = Product.find_by(id: product_id)
+  product_id = params[:id]
+  @product = Product.find_by(id: product_id)
 
     if params[:category]
       category = Category.find_by(name: params[:category])
@@ -27,7 +27,7 @@ def show
 end
 
 def create
-    @product = Product.new(
+    @product = Product.create!(
       name: params[:name],
       price: params[:price],
       description: params[:description], 

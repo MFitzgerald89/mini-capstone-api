@@ -1,13 +1,10 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzk0NDQ3OTV9.6HbdiDW0iwlrs-py0-ZF2iTpS9KTXsTn9zeQncTQaBw
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2ODIzNTY5Nzh9.x8PyH7H8rER9C6EzMPWxIjkUP_oj_mLauROor7Vyf8g
 
 ### Product Index
 
-GET http://localhost:3000/products.json?category=Exhaust
+GET http://localhost:3000/products.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
-
-### Product Show
-GET http://localhost:3000/products/1.json?category=Exhaust
 
 ### Product Show
 GET http://localhost:3000/products/2.json
@@ -17,33 +14,41 @@ POST http://localhost:3000/products.json
 Content-type: application/json
 Authorization: Bearer {{jwt}}
 
-{"name": "Engine",
-"price": 2400,
-"description": "Creates small explosions under pistons, to propel a vehicle forwards or backwards by turning mechnical parts",
-"supplier_id": 1,
-"product_id": 1
+{"name": "Muffler",
+"price": 250,
+"description": "Muffles exhaust and engine noise",
+"inventory": 1,
+"supplier_id": 2,
+"total": 1
 }
 
 ### Product Update
 
-PATCH http://localhost:3000/products/3.json
+PATCH http://localhost:3000/products/2.json
 Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "name": "Cat Converter"
+}
 
 ### Product Delete/Destroy
 
-DELETE http://localhost:3000/images/7.json
+DELETE http://localhost:3000/products/6.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 ### Supplier Index
 
-GET http://localhost:3000/suppliers
+GET http://localhost:3000/suppliers.json
 
 ### Supplier Show
 
-GET http://localhost:3000/suppliers/1
+GET http://localhost:3000/suppliers/1.json
 
 ### Supplier Create
 
-POST http://localhost:3000/suppliers/
+POST http://localhost:3000/suppliers/.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
  
@@ -64,10 +69,11 @@ DELETE http://localhost:3000/suppliers/json
 
 POST http://localhost:3000/users.json
 Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 {
-"name": "Steve",
-"email": "Steveharvey@test.com",
+"name": "Micheal",
+"email": "Micheal89@test.com",
 "password": "password",
 "password_confirmation": "password"
 }
@@ -77,6 +83,7 @@ Content-Type: application/json
 
 POST http://localhost:3000/sessions.json
 Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 {
   "email": "mikefitz@test.com",
@@ -92,7 +99,7 @@ Authorization: Bearer {{jwt}}
 
 ### Order Show
 
-GET http://localhost:3000/orders/9.json
+GET http://localhost:3000/orders/5.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
