@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
 
-before_action :authenticate_user, except: [:index, :show]
+  before_action :authenticate_user, except: [:index, :show]
 
-def index
+  def index
   @products = Product.all
 
   if params[:category]
@@ -12,9 +12,11 @@ def index
     # render using json (NO Template)
     # render json: @products, :include => [:supplier, :images]
   render template: "products/index"
-end
+  end
 
-def show
+
+
+  def show
   product_id = params[:id]
   @product = Product.find_by(id: product_id)
 
@@ -24,9 +26,10 @@ def show
 
     # render using a template
     render template: "products/show"
-end
+  end
 
-def create
+
+  def create
     @product = Product.create!(
       name: params[:name],
       price: params[:price],
@@ -36,7 +39,7 @@ def create
     )
 
     if @product.save
-      image = Image.new(product_id: @product.id ,url: params[:image_url])
+      image = Image.new(product_id: @product.id ,url: params[:image])
       image.save
       # happy path i.e. successful
       render template: "products/show"
@@ -44,9 +47,10 @@ def create
       # sad path i.e. unsucessful
       render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
     end
-end
+  end
 
-def update
+
+  def update
     product_id = params[:id]
     @product = Product.find(product_id)
     @product.update(
@@ -65,13 +69,14 @@ def update
       render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
     end
 
-end
+  end
 
-def destroy
+
+  def destroy
     product = Product.find(params[:id])
     product.destroy
     render json: {message: "Product successfully destroyed!"}
-end
+  end
 
 
 
